@@ -1,0 +1,175 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "halo quote",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "HaloQuoteIntent",
+          "slots": [
+            {
+              "name": "characterName",
+              "type": "characterName"
+            }
+          ],
+          "samples": [
+            "for {characterName} quote",
+            "for an {characterName} quote",
+            "for a {characterName} quote"
+          ]
+        },
+        {
+          "name": "HaloTwoEasterEggIntent",
+          "slots": [],
+          "samples": [
+            "you mind telling me what you\u0027re doing on that ship"
+          ]
+        },
+        {
+          "name": "HaloQuoteTriviaIntent",
+          "slots": [],
+          "samples": [
+            "for trivia",
+            "to begin trivia",
+            "to start trivia",
+            "trivia"
+          ]
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "TriviaAnswerIntent",
+          "slots": [
+            {
+              "name": "characterName",
+              "type": "characterName"
+            }
+          ],
+          "samples": [
+            "i think it\u0027s {characterName}",
+            "it\u0027s {characterName}",
+            "is it {characterName}",
+            "{characterName}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "any"
+              }
+            },
+            {
+              "name": {
+                "value": "3 4 3 guilty spark",
+                "synonyms": [
+                  "three four three guilty spark",
+                  "three four three",
+                  "guilty spark"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "gravemind",
+                "synonyms": [
+                  "the gravemind"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "prophet of truth",
+                "synonyms": [
+                  "truth"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "cortana"
+              }
+            },
+            {
+              "name": {
+                "value": "sargent johnson",
+                "synonyms": [
+                  "johnson"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "arbiter",
+                "synonyms": [
+                  "thel\u0027 vadamee",
+                  "thel \u0027vadam"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "master chief",
+                "synonyms": [
+                  "sierra one one seven",
+                  "john one one seven",
+                  "john",
+                  "chief"
+                ]
+              }
+            }
+          ],
+          "name": "characterName"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "HaloQuoteTriviaIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.755839759188"
+          },
+          "slots": []
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.755839759188",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Are you ready?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "16"
+}

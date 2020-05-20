@@ -15,7 +15,6 @@ const HaloQuoteIntentHandler = {
         const speakOutput = getQuote(handlerInput, sessionAttributes, characterName, false);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .reprompt("Find another quote or start trivia?")
             .getResponse();
     }
 };
@@ -70,6 +69,11 @@ const TriviaAnswerIntent = {
         sessionAttributes.triviaQuestionIndex++;
         let quote = askQuestion(sessionAttributes);
         speakOutput += quote;
+        if(sessionAttributes.triviaQuestionIndex === TRIVIA_QUOTE_COUNT) {
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse()
+        }
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(quote)
@@ -134,7 +138,7 @@ const askQuestion = function(sessionAttributes) {
   const triviaQuestionIndex = sessionAttributes.triviaQuestionIndex;
 
   if (triviaQuestionIndex >= TRIVIA_QUOTE_COUNT) {
-    return 'You\'re final score is ' + sessionAttributes.score + ' out of ' + TRIVIA_QUOTE_COUNT + ". You can say trivia to play again, or ask for a random quote.";
+    return 'You\'re final score is ' + sessionAttributes.score + ' out of ' + TRIVIA_QUOTE_COUNT + ". Thanks for playing!";
   } else {
     var currentQuestion = sessionAttributes.quotes[triviaQuestionIndex].quote;
     return 'Quote ' + (triviaQuestionIndex + 1) + ' out of ' + TRIVIA_QUOTE_COUNT + ': ' + currentQuestion;
